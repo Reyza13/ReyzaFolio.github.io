@@ -28,10 +28,96 @@
 
     <!-- Custom Modern Polish & Matrix Binary Rain Canvas Styles -->
     <style>
-        .navbar {
-            backdrop-filter: blur(8px);
-            background-color: rgba(255, 255, 255, 0.95) !important;
+        :root {
+            --luxury-dark: #120f14;
+            --luxury-dark-2: #1d1320;
+            --luxury-maroon: #5b1b2b;
+            --luxury-gold: #d9b66f;
+            --luxury-gold-soft: #f6e5ba;
+            --luxury-ivory: #f9f5ef;
+            --luxury-ink: #221b26;
+            --luxury-shadow: rgba(12, 8, 17, 0.38);
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background:
+                radial-gradient(circle at 20% 15%, rgba(217, 182, 111, 0.2), transparent 18%),
+                radial-gradient(circle at 80% 12%, rgba(139, 87, 27, 0.2), transparent 22%),
+                linear-gradient(135deg, #0d0a10 0%, #1f1520 35%, #2d1d2c 100%);
+            color: var(--luxury-ivory);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(45deg, rgba(217,182,111,0.06) 25%, transparent 25%, transparent 50%, rgba(217,182,111,0.06) 50%, rgba(217,182,111,0.06) 75%, transparent 75%, transparent),
+                linear-gradient(-45deg, rgba(255,255,255,0.04) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0.04) 75%, transparent 75%, transparent),
+                radial-gradient(circle at center, rgba(255,255,255,0.02) 0%, transparent 60%);
+            background-size: 180px 180px, 180px 180px, 100% 100%;
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(18, 15, 20, 0.78) !important;
+            border-bottom: 1px solid rgba(217, 182, 111, 0.35);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar .navbar-brand h1,
+        .navbar .nav-item,
+        .navbar .nav-link,
+        .navbar .btn-outline-primary {
+            color: var(--luxury-ivory) !important;
+        }
+
+        .navbar .text-primary {
+            color: var(--luxury-gold) !important;
+        }
+
+        .nav-item.nav-link {
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .nav-item.nav-link:hover,
+        .nav-item.nav-link.active {
+            color: var(--luxury-gold-soft) !important;
+        }
+
+        .btn-outline-primary {
+            border-color: var(--luxury-gold);
+            color: var(--luxury-gold);
+            background: rgba(217, 182, 111, 0.06);
+            box-shadow: 0 0 0 0 rgba(217, 182, 111, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover,
+        .btn-outline-primary:focus {
+            background: var(--luxury-gold);
+            color: var(--luxury-dark-2);
+            box-shadow: 0 8px 25px rgba(217, 182, 111, 0.25);
+        }
+
         .portfolio-item .position-relative {
             border-radius: 8px;
             overflow: hidden;
@@ -58,11 +144,48 @@
         }
         .service-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-radius: 8px;
+            border-radius: 12px;
+            border: 1px solid rgba(217, 182, 111, 0.3) !important;
+            background: rgba(255,255,255,0.05) !important;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
         }
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.18);
+            border-color: rgba(217, 182, 111, 0.7) !important;
+        }
+        .service-card p,
+        .service-card h4,
+        .service-card .service-icon {
+            color: var(--luxury-ivory) !important;
+        }
+        .service-card .service-icon {
+            background: linear-gradient(135deg, #d9b66f, #8a5b1d) !important;
+        }
+
+        .container-fluid:not(.bg-primary) {
+            background: rgba(255,255,255,0.015);
+        }
+
+        .container-fluid.bg-primary.world-it-hero {
+            position: relative;
+            background:
+                linear-gradient(115deg, rgba(20, 12, 16, 0.92), rgba(74, 27, 39, 0.76)),
+                radial-gradient(circle at left, rgba(217,182,111,0.28), transparent 28%);
+            border-bottom: 1px solid rgba(217,182,111,0.35);
+            box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.18);
+        }
+
+        .world-it-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(45deg, rgba(217,182,111,0.06) 25%, transparent 25%, transparent 50%, rgba(217,182,111,0.06) 50%, rgba(217,182,111,0.06) 75%, transparent 75%, transparent),
+                linear-gradient(-45deg, rgba(255,255,255,0.04) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0.04) 75%, transparent 75%, transparent);
+            background-size: 180px 180px;
+            opacity: 0.7;
+            pointer-events: none;
         }
 
         /* Matrix Binary Rain Container */
@@ -78,10 +201,127 @@
             height: 100%;
             z-index: 1;
             pointer-events: none;
+            opacity: 0.5;
         }
         .world-it-hero > .container {
             position: relative;
             z-index: 2;
+        }
+
+        .text-primary {
+            color: var(--luxury-gold) !important;
+        }
+
+        .display-1,
+        .display-3,
+        .display-5,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            letter-spacing: 0.02em;
+        }
+
+        .container-fluid[id="about"],
+        .container-fluid[id="qualification"],
+        .container-fluid[id="skill"],
+        .container-fluid[id="service"],
+        .container-fluid[id="portfolio"],
+        .container-fluid[id="contact"] {
+            background: rgba(14, 10, 15, 0.64);
+            border-top: 1px solid rgba(217,182,111,0.18);
+            border-bottom: 1px solid rgba(217,182,111,0.18);
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.12);
+        }
+
+        .container-fluid[id="about"] .text-secondary,
+        .container-fluid[id="qualification"] .text-secondary,
+        .container-fluid[id="skill"] .text-secondary,
+        .container-fluid[id="service"] .text-secondary,
+        .container-fluid[id="portfolio"] .text-secondary,
+        .container-fluid[id="contact"] .text-secondary {
+            color: rgba(249,245,239,0.82) !important;
+        }
+
+        .container-fluid[id="about"] img,
+        .container-fluid[id="qualification"] img,
+        .container-fluid[id="skill"] img,
+        .container-fluid[id="service"] img,
+        .container-fluid[id="portfolio"] img,
+        .container-fluid[id="contact"] img {
+            box-shadow: 0 18px 35px rgba(0,0,0,0.2);
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.04) !important;
+            border: 1px solid rgba(217,182,111,0.25) !important;
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18) !important;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            background: rgba(255,255,255,0.03) !important;
+            border: 1px solid rgba(217,182,111,0.24) !important;
+            color: var(--luxury-ivory) !important;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(249,245,239,0.7) !important;
+        }
+
+        .bg-light {
+            background: rgba(255,255,255,0.04) !important;
+        }
+
+        .bg-primary {
+            background: linear-gradient(135deg, #6c1d2d, #17131a) !important;
+        }
+
+        .btn-play {
+            border: 2px solid rgba(217,182,111,0.8);
+            box-shadow: 0 0 0 8px rgba(217,182,111,0.14);
+        }
+
+        .btn-play span {
+            border-left-color: var(--luxury-gold-soft);
+        }
+
+        .btn-outline-dark {
+            border-color: rgba(217,182,111,0.65);
+            color: var(--luxury-gold-soft);
+        }
+
+        .text-white {
+            color: #f9f5ef !important;
+        }
+
+        .rounded,
+        .rounded-circle {
+            border-radius: 18px !important;
+        }
+
+        .scroll-to-bottom,
+        .back-to-top {
+            z-index: 5;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar {
+                background: rgba(18, 15, 20, 0.9) !important;
+            }
+
+            .navbar-collapse {
+                background: rgba(18, 15, 20, 0.9);
+                border-radius: 12px;
+                padding: 15px;
+            }
+
+            .navbar .nav-link {
+                padding: 12px 0;
+            }
         }
     </style>
 </head>
@@ -170,7 +410,7 @@
                 </div>
                 <div class="col-lg-7 pl-lg-4">
                     <h3 class="mb-4">UI/UX Designer & Web Developer</h3>
-                    <p align="justify" class="text-secondary" style="line-height: 1.8;">Perkenalkan Saya, M. Agustian Reyza Novris, S.Kom lulusan dari STMIK Amik Riau tahun masuk 2019 dan tahun lulus 2023.
+                    <p align="justify" class="text-secondary" style="line-height: 1.8;">Perkenalkan Saya, M. Agustian Reyza Novris, S.Kom lulusan dari STMIK Amik Riau tahun masuk 2019 dan tahun l[...]
                     <br>Saya memiliki pengalaman kerja selama 6 bulan di PT. Bank Riau Kepri Syariah Bengkalis Batupanjang Rupat pada bagian Pembiayaan.
                     Di bagian Pembiayaan saya diberi tugas atau bagian pekerjaan sebagai berikut :
                     <br>Melakukan registrasi surat masuk dan keluar, mencari informasi debitur pada sistem ojk, membantu mengerjakan surat perjanjian kredit, 
