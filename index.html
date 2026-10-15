@@ -127,6 +127,11 @@
             background-size: contain;
             background-position: center;
             filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.15));
+            display: none;
+        }
+
+        body.theme-batik .batik-bg {
+            display: block;
         }
 
         .batik-left {
@@ -237,7 +242,7 @@
     </style>
 </head>
 
-<body class="theme-batik" data-spy="scroll" data-target=".navbar" data-offset="51">
+<body data-spy="scroll" data-target=".navbar" data-offset="51">
     <div class="batik-bg batik-left"></div>
     <div class="batik-bg batik-right"></div>
 
@@ -258,6 +263,9 @@
                 <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
                 <a href="#contact" class="nav-item nav-link">Contact</a>
             </div>
+            <button id="batikToggle" class="btn btn-sm btn-outline-dark mr-2" type="button" aria-pressed="false" title="Toggle Batik Theme">
+                <i class="fas fa-fill-drip"></i>&nbsp;Batik
+            </button>
             <a href="#contact" class="btn btn-outline-primary d-none d-lg-block">Hire Me</a>
         </div>
     </nav>
@@ -1031,6 +1039,45 @@
             let whatsappUrl = `https://api.whatsapp.com/send?phone=6283121866464&text=${text}`;
             window.open(whatsappUrl, '_blank');
         });
+
+        (function () {
+            const toggle = document.getElementById('batikToggle');
+            const THEME_KEY = 'theme-batik-enabled';
+
+            function applyTheme(enabled) {
+                if (enabled) {
+                    document.body.classList.add('theme-batik');
+                    toggle.setAttribute('aria-pressed', 'true');
+                    toggle.classList.remove('btn-outline-dark');
+                    toggle.classList.add('btn-outline-primary');
+                } else {
+                    document.body.classList.remove('theme-batik');
+                    toggle.setAttribute('aria-pressed', 'false');
+                    toggle.classList.remove('btn-outline-primary');
+                    toggle.classList.add('btn-outline-dark');
+                }
+            }
+
+            let saved = null;
+            try {
+                saved = localStorage.getItem(THEME_KEY);
+            } catch (e) {
+                saved = null;
+            }
+
+            if (toggle) {
+                applyTheme(saved === '1');
+
+                toggle.addEventListener('click', function () {
+                    const enabled = document.body.classList.contains('theme-batik');
+                    const next = !enabled;
+                    try {
+                        localStorage.setItem(THEME_KEY, next ? '1' : '0');
+                    } catch (e) {}
+                    applyTheme(next);
+                });
+            }
+        })();
     </script>
 </body>
 
