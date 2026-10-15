@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0%" stop-color="#f6e5ba"/>
+      <stop offset="100%" stop-color="#d9b66f"/>
+    </linearGradient>
+    <pattern id="p" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="rgba(0,0,0,0)"/>
+      <path d="M0 20 Q10 10 20 20 T40 20" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
+      <circle cx="10" cy="10" r="2" fill="rgba(0,0,0,0.04)"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g)"/>
+  <rect width="100%" height="100%" fill="url(#p)" opacity="0.25"/>
+  <!-- Batik motif accents -->
+  <g fill="none" stroke="#3a2a12" stroke-opacity="0.12" stroke-width="1.5">
+    <path d="M20 60 C60 10,140 10,180 60"/>
+    <path d="M20 140 C60 90,140 90,180 140"/>
+    <path d="M20 220 C60 170,140 170,180 220"/>
+    <path d="M20 300 C60 250,140 250,180 300"/>
+    <path d="M20 380 C60 330,140 330,180 380"/>
+    <path d="M20 460 C60 410,140 410,180 460"/>
+    <path d="M20 540 C60 490,140 490,180 540"/>
+    <path d="M20 620 C60 570,140 570,180 620"/>
+  </g>
+</svg>
