@@ -4,66 +4,88 @@
 <head>
     <meta charset="utf-8">
     <title>ReyzaFolio</title>
-    <!-- Use rey.jpg from img as favicon (file exists in repo) -->
     <link rel="icon" href="img/rey.jpg" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="ReyzaFolio" name="keywords">
     <meta content="ReyzaFolio" name="description">
 
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"> 
-
-    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 
-    <!-- Custom Modern Polish & Matrix Binary Rain Canvas Styles -->
     <style>
-        .navbar {
-            backdrop-filter: blur(8px);
-            background-color: rgba(255, 255, 255, 0.95) !important;
-        }
-        .portfolio-item .position-relative {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .portfolio-item:hover .position-relative {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        .portfolio-btn {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .portfolio-item:hover .portfolio-btn {
-            opacity: 1;
-        }
-        .progress {
-            height: 8px;
-            border-radius: 4px;
-        }
-        .progress-bar {
-            border-radius: 4px;
-        }
-        .service-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-radius: 8px;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        body.theme-batik {
+            background:
+                linear-gradient(180deg, rgba(78, 27, 19, 0.96), rgba(120, 66, 33, 0.93)),
+                #f6efe8;
+            color: #2e1a13;
         }
 
-        /* Section title background fix */
+        .theme-batik .navbar {
+            background-color: rgba(255, 246, 236, 0.92) !important;
+            border-bottom: 1px solid rgba(133, 88, 45, 0.18);
+        }
+
+        .theme-batik .text-primary,
+        .theme-batik .navbar .text-primary,
+        .theme-batik .position-absolute.text-primary,
+        .theme-batik .nav-item.active,
+        .theme-batik .btn-outline-primary,
+        .theme-batik .btn-outline-dark,
+        .theme-batik .btn-play,
+        .theme-batik .service-icon,
+        .theme-batik .bg-primary {
+            color: #7c2d1d !important;
+        }
+
+        .theme-batik .bg-primary,
+        .theme-batik .btn-outline-primary,
+        .theme-batik .btn-outline-dark,
+        .theme-batik .progress-bar.bg-primary,
+        .theme-batik .service-icon,
+        .theme-batik .portfolio-btn,
+        .theme-batik .btn-social {
+            background-color: #a75a34 !important;
+            border-color: #a75a34 !important;
+        }
+
+        .theme-batik .bg-light,
+        .theme-batik .card,
+        .theme-batik .contact-form,
+        .theme-batik .service-card,
+        .theme-batik .portfolio-item .position-relative,
+        .theme-batik .border {
+            background-color: rgba(255, 251, 247, 0.88) !important;
+            border-color: rgba(148, 91, 48, 0.18) !important;
+        }
+
+        .theme-batik .text-secondary,
+        .theme-batik .text-white,
+        .theme-batik p,
+        .theme-batik h3,
+        .theme-batik h4,
+        .theme-batik h5,
+        .theme-batik h6,
+        .theme-batik label,
+        .theme-batik input,
+        .theme-batik textarea {
+            color: #38241d !important;
+        }
+
+        .theme-batik .container,
+        .theme-batik .container-fluid,
+        .theme-batik .section-title-wrap {
+            position: relative;
+            z-index: 1;
+        }
+
+        .theme-batik .navbar .nav-link {
+            color: rgba(56, 36, 29, 0.9) !important;
+        }
+
         .section-title-wrap {
             position: relative;
             display: flex;
@@ -73,6 +95,7 @@
             overflow: hidden;
             margin-bottom: 1.5rem;
         }
+
         .section-title-wrap .display-1 {
             position: relative;
             z-index: 0;
@@ -82,6 +105,7 @@
             letter-spacing: 0.04em;
             pointer-events: none;
         }
+
         .section-title-wrap .position-absolute {
             position: absolute !important;
             left: 50%;
@@ -91,11 +115,86 @@
             white-space: nowrap;
         }
 
-        /* Matrix Binary Rain Container */
+        .batik-bg {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 220px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.16;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.15));
+        }
+
+        .batik-left {
+            left: 0;
+            background-image: url('img/batik-left.svg');
+        }
+
+        .batik-right {
+            right: 0;
+            background-image: url('img/batik-right.svg');
+        }
+
+        .portfolio-item .position-relative,
+        .service-card,
+        .contact-form {
+            box-shadow: 0 10px 25px rgba(77, 40, 25, 0.08);
+        }
+
+        .navbar {
+            backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.95) !important;
+        }
+
+        .portfolio-item .position-relative {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .portfolio-item:hover .position-relative {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .portfolio-btn {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-btn {
+            opacity: 1;
+        }
+
+        .progress {
+            height: 8px;
+            border-radius: 4px;
+        }
+
+        .progress-bar {
+            border-radius: 4px;
+        }
+
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
         .world-it-hero {
             position: relative;
             overflow: hidden;
         }
+
         #matrixCanvas {
             position: absolute;
             top: 0;
@@ -105,6 +204,7 @@
             z-index: 1;
             pointer-events: none;
         }
+
         .world-it-hero > .container {
             position: relative;
             z-index: 2;
@@ -114,10 +214,12 @@
             .section-title-wrap {
                 min-height: 70px;
             }
+
             .section-title-wrap .display-1 {
                 font-size: 4.2rem;
                 opacity: 0.08;
             }
+
             .section-title-wrap .position-absolute {
                 position: static !important;
                 transform: none;
@@ -126,12 +228,19 @@
                 white-space: normal;
                 text-align: center;
             }
+
+            .batik-bg {
+                width: 120px;
+                opacity: 0.12;
+            }
         }
     </style>
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="51">
-    <!-- Navbar Start -->
+<body class="theme-batik" data-spy="scroll" data-target=".navbar" data-offset="51">
+    <div class="batik-bg batik-left"></div>
+    <div class="batik-bg batik-right"></div>
+
     <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
         <a href="index.html" class="navbar-brand ml-lg-3">
             <h1 class="m-0 display-5"><span class="text-primary">Reyza</span>Folio</h1>
@@ -152,9 +261,7 @@
             <a href="#contact" class="btn btn-outline-primary d-none d-lg-block">Hire Me</a>
         </div>
     </nav>
-    <!-- Navbar End -->
 
-    <!-- Video Modal Start -->
     <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content border-0 shadow-lg" style="border-radius: 10px; overflow: hidden;">
@@ -169,9 +276,7 @@
             </div>
         </div>
     </div>
-    <!-- Video Modal End -->
 
-    <!-- Header Start -->
     <div class="container-fluid bg-primary world-it-hero d-flex align-items-center mb-5 py-5" id="home" style="min-height: 100vh;">
         <canvas id="matrixCanvas"></canvas>
         <div class="container">
@@ -196,9 +301,7 @@
             </div>
         </div>
     </div>
-    <!-- Header End -->
 
-    <!-- About Start -->
     <div class="container-fluid py-5" id="about">
         <div class="container">
             <div class="section-title-wrap">
@@ -241,9 +344,7 @@
             </div>
         </div>
     </div>
-    <!-- About End -->
 
-    <!-- Qualification Start -->
     <div class="container-fluid py-5" id="qualification">
         <div class="container">
             <div class="section-title-wrap">
@@ -363,9 +464,7 @@
             </div>
         </div>
     </div>
-    <!-- Qualification End -->
 
-    <!-- Skill Start -->
     <div class="container-fluid py-5" id="skill">
         <div class="container">
             <div class="section-title-wrap">
@@ -434,9 +533,7 @@
             </div>
         </div>
     </div>
-    <!-- Skill End -->
 
-    <!-- Services Start -->
     <div class="container-fluid pt-5" id="service">
         <div class="container">
             <div class="section-title-wrap">
@@ -483,9 +580,7 @@
             </div>
         </div>
     </div>
-    <!-- Services End -->
 
-    <!-- Portfolio Start -->
     <div class="container-fluid pt-5 pb-3" id="portfolio">
         <div class="container">
             <div class="section-title-wrap">
@@ -797,9 +892,7 @@
             </div>
         </div>
     </div>
-    <!-- Portfolio End -->
 
-    <!-- Contact Start -->
     <div class="container-fluid py-5" id="contact">
         <div class="container">
             <div class="section-title-wrap">
@@ -842,9 +935,7 @@
             </div>
         </div>
     </div>
-    <!-- Contact End -->
 
-    <!-- Footer Start -->
     <div class="container-fluid bg-primary text-white mt-5 py-5 px-sm-3 px-md-5">
         <div class="container text-center py-4">
             <div class="d-flex justify-content-center mb-4">
@@ -866,15 +957,10 @@
             </p>
         </div>
     </div>
-    <!-- Footer End -->
 
-    <!-- Scroll to Bottom -->
     <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
-
-    <!-- Back to Top -->
     <a href="#" class="btn btn-outline-dark px-0 back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
-    <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="lib/typed/typed.min.js"></script>
@@ -883,11 +969,8 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
-
-    <!-- Template Javascript -->
     <script src="js/main.js"></script>
 
-    <!-- Matrix Binary Rain JavaScript Script -->
     <script>
         const canvas = document.getElementById('matrixCanvas');
         const ctx = canvas.getContext('2d');
@@ -900,10 +983,10 @@
         function resizeCanvas() {
             canvas.width = canvas.parentElement.offsetWidth;
             canvas.height = canvas.parentElement.offsetHeight;
-
             columns = Math.max(1, Math.floor(canvas.width / fontSize));
             drops = new Array(columns).fill(1).map(() => Math.floor(Math.random() * (canvas.height / fontSize)));
         }
+
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
@@ -915,7 +998,6 @@
 
             ctx.fillStyle = 'rgba(2, 126, 251, 0.15)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-
             ctx.fillStyle = 'rgba(255, 255, 255, 0.65)';
             ctx.font = fontSize + 'px monospace';
 
@@ -932,7 +1014,6 @@
 
         setInterval(drawMatrix, 40);
 
-        // WhatsApp Direct Integration Script
         document.getElementById("sendMessageButton").addEventListener("click", function(event) {
             event.preventDefault();
             
@@ -948,7 +1029,6 @@
 
             let text = `Halo, nama saya *${name}*%0AEmail: ${email}%0A%0ASubjek: ${subject}%0APesan: ${message}`;
             let whatsappUrl = `https://api.whatsapp.com/send?phone=6283121866464&text=${text}`;
-            
             window.open(whatsappUrl, '_blank');
         });
     </script>
