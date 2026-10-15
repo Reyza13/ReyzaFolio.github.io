@@ -308,6 +308,35 @@
             z-index: 5;
         }
 
+        /* Fix: ensure decorative large heading doesn't cover content */
+        .position-relative .display-1 {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
+            opacity: 0.08;
+            pointer-events: none;
+            font-size: clamp(80px, 12vw, 200px);
+            line-height: 1;
+            -webkit-text-stroke: 1px #dee2e6;
+        }
+
+        /* Ensure the section title and other important text are above the decorative heading */
+        .position-relative .position-absolute,
+        .position-relative .text-primary {
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Make contact form interactable above background */
+        .contact-form {
+            position: relative;
+            z-index: 3;
+        }
+
         @media (max-width: 991.98px) {
             .navbar {
                 background: rgba(18, 15, 20, 0.9) !important;
@@ -321,6 +350,21 @@
 
             .navbar .nav-link {
                 padding: 12px 0;
+            }
+
+            /* For small screens keep decorative heading smaller and less intrusive */
+            .position-relative .display-1 {
+                font-size: clamp(48px, 24vw, 120px);
+                opacity: 0.06;
+                top: 5px;
+            }
+
+            .position-relative .position-absolute,
+            .position-relative .text-primary {
+                position: absolute;
+                z-index: 2;
+                top: 40%;
+                transform: translateY(-40%);
             }
         }
     </style>
@@ -664,495 +708,3 @@
                         <p class="text-secondary">Pembuatan Website simple fungsional dan responsive</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="service-card p-4 border bg-light h-100">
-                        <div class="d-flex align-items-center justify-content-center mb-4">
-                            <i class="fab fa-2x fa-android service-icon bg-primary text-white mr-3 p-3 rounded"></i>
-                            <h4 class="font-weight-bold m-0">UI/UX Design</h4>
-                        </div>
-                        <p class="text-secondary">Pembuatan UI/UX pada desain aplikasi mobile dan website yang terstruktur dan berkonsep</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center mb-5 mx-auto">
-                    <div class="service-card p-4 border bg-light h-100">
-                        <div class="d-flex align-items-center justify-content-center mb-4">
-                            <i class="fa fa-2x fa-edit service-icon bg-primary text-white mr-3 p-3 rounded"></i>
-                            <h4 class="font-weight-bold m-0">Graphic Design</h4>
-                        </div>
-                        <p class="text-secondary">Pembuatan desain paling maksimal dengan berbagai tools yang menghasilkan desain terbaik</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Services End -->
-
-
-    <!-- Portfolio Start -->
-    <div class="container-fluid pt-5 pb-3" id="portfolio">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Gallery</h1>
-                <h1 class="position-absolute text-uppercase text-primary">My Portfolio</h1>
-            </div>
-            <div class="row pt-3">
-                <div class="col-12 text-center mb-2">
-                    <ul class="list-inline mb-4" id="portfolio-flters">
-                        <li class="btn btn-sm btn-outline-primary m-1 active" data-filter="*">All</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".first">Design</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".second">UI/UX Design</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".third">Graphic Design</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".fourth">Web Development</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row portfolio-container">
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio17.jpg" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio17.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio9.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio9.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio16.jpg" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio16.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio29.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio29.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio23.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio23.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio1.jpg" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio1.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio4.PNG" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio4.PNG" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio2.PNG" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio2.PNG" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio7.PNG" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio7.PNG" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio8.PNG" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio8.PNG" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio3.PNG" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio3.PNG" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item fourth">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio25.PNG" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio25.PNG" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio6.PNG" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio6.PNG" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio5.PNG" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio5.PNG" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio10.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio10.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio18.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio18.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio19.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio19.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio20.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio20.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio21.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio21.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio22.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio22.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio26.jpg" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio26.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio27.jpg" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio27.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio28.jpg" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio28.jpg" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item fourth">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio11.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio11.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item fourth">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio12.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio12.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item fourth">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio13.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio13.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item fourth">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio15.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio15.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item fourth">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio24.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio24.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item fourth">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portfolio114.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center" style="position: absolute; top:0; left:0; right:0; bottom:0;">
-                            <a href="img/portfolio114.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 50px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Portfolio End -->
-
-
-    <!-- Contact Start -->
-    <div class="container-fluid py-5" id="contact">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Contact</h1>
-                <h1 class="position-absolute text-uppercase text-primary">Contact Me</h1>
-            </div>
-            <div class="row justify-content-center pt-3">
-                <div class="col-lg-8">
-                    <div class="contact-form text-center p-5 bg-light rounded border shadow-sm">
-                        <div id="success"></div>
-                        <form name="sentMessage" id="contactForm">
-                            <div class="form-row">
-                                <div class="control-group col-sm-6 mb-3">
-                                    <input type="text" class="form-control p-4 border" id="name" placeholder="Your Name"
-                                        required="required" />
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="control-group col-sm-6 mb-3">
-                                    <input type="email" class="form-control p-4 border" id="email" placeholder="Your Email"
-                                        required="required" />
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="control-group mb-3">
-                                <input type="text" class="form-control p-4 border" id="subject" placeholder="Subject"
-                                    required="required" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="control-group mb-3">
-                                <textarea class="form-control py-3 px-4 border" rows="5" id="message" placeholder="Message"
-                                    required="required"></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div>
-                                <button class="btn btn-outline-primary px-5 py-3 font-weight-bold" type="button" id="sendMessageButton">Send Message</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Contact End -->
-
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-primary text-white mt-5 py-5 px-sm-3 px-md-5">
-        <div class="container text-center py-4">
-            <div class="d-flex justify-content-center mb-4">
-                <a class="btn btn-light btn-social mr-2" href="https://api.whatsapp.com/send/?phone=6283121866464&text&type=phone_number&app_absent=0" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                <a class="btn btn-light btn-social mr-2" href="https://web.facebook.com/profile.php?id=100005288528548" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-light btn-social mr-2" href="https://www.linkedin.com/in/m-agustianreyzanovris/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-light btn-social mr-2" href="https://www.instagram.com/agustian_rn/" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>
-            <div class="d-flex justify-content-center mb-3">
-                <a class="text-white" href="#">Privacy</a>
-                <span class="px-3">|</span>
-                <a class="text-white" href="#">Terms</a>
-                <span class="px-3">|</span>
-                <a class="text-white" href="#">FAQs</a>
-                <span class="px-3">|</span>
-                <a class="text-white" href="#">Help</a>
-            </div>
-            <p class="m-0">&copy; <a class="text-white font-weight-bold" href="#">ReyzaFolio</a>. All Rights Reserved. Designed by <a class="text-white font-weight-bold" href="#">ReyzaFolio</a>
-            </p>
-        </div>
-    </div>
-    <!-- Footer End -->
-
-    <!-- Scroll to Bottom -->
-    <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-outline-dark px-0 back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/typed/typed.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-
-    <!-- Matrix Binary Rain JavaScript Script -->
-    <script>
-        const canvas = document.getElementById('matrixCanvas');
-        const ctx = canvas.getContext('2d');
-
-        function resizeCanvas() {
-            canvas.width = canvas.parentElement.offsetWidth;
-            canvas.height = canvas.parentElement.offsetHeight;
-        }
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-
-        const characters = '01100101011110010101101001000011001011001010101010111100';
-        const fontSize = 16;
-        let columns = Math.floor(canvas.width / fontSize);
-        let drops = [];
-        for (let i = 0; i < columns; i++) {
-            drops[i] = 1;
-        }
-
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(2, 126, 251, 0.15)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.65)';
-            ctx.font = fontSize + 'px monospace';
-
-            for (let i = 0; i < drops.length; i++) {
-                const text = characters.charAt(Math.floor(Math.random() * characters.length));
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
-            }
-        }
-
-        setInterval(drawMatrix, 40);
-
-        // WhatsApp Direct Integration Script
-        document.getElementById("sendMessageButton").addEventListener("click", function(event) {
-            event.preventDefault();
-            
-            let name = document.getElementById("name").value;
-            let email = document.getElementById("email").value;
-            let subject = document.getElementById("subject").value;
-            let message = document.getElementById("message").value;
-
-            if(!name || !email || !subject || !message) {
-                alert("Harap isi semua kolom terlebih dahulu!");
-                return;
-            }
-
-            let text = `Halo, nama saya *${name}*%0AEmail: ${email}%0A%0ASubjek: ${subject}%0APesan: ${message}`;
-            let whatsappUrl = `https://api.whatsapp.com/send?phone=6283121866464&text=${text}`;
-            
-            window.open(whatsappUrl, '_blank');
-        });
-    </script>
-</body>
-
-</html>
