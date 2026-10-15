@@ -4,29 +4,18 @@
 <head>
     <meta charset="utf-8">
     <title>ReyzaFolio</title>
-    <link rel="shortcut icon" type="image/icon" href="img/rey.jpg"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="ReyzaFolio" name="keywords">
     <meta content="ReyzaFolio" name="description">
-
-    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/icon" href="img/rey.jpg" />
     <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"> 
-
-    <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 
-    <!-- Custom Modern Polish & Matrix Binary Rain Canvas Styles -->
     <style>
         :root {
             --luxury-dark: #120f14;
@@ -118,59 +107,51 @@
             box-shadow: 0 8px 25px rgba(217, 182, 111, 0.25);
         }
 
-        .portfolio-item .position-relative {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .btn-primary {
+            background: linear-gradient(135deg, #d9b66f, #8a5b1d);
+            border: none;
+            color: #1d1320;
+            font-weight: 700;
         }
-        .portfolio-item:hover .position-relative {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--luxury-gold-soft);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 0.8rem;
         }
-        .portfolio-btn {
-            opacity: 0;
-            transition: opacity 0.3s ease;
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 2px;
+            margin-top: 10px;
+            background: linear-gradient(90deg, var(--luxury-gold), transparent);
         }
-        .portfolio-item:hover .portfolio-btn {
-            opacity: 1;
+
+        .text-primary {
+            color: var(--luxury-gold) !important;
         }
-        .progress {
-            height: 8px;
-            border-radius: 4px;
-        }
-        .progress-bar {
-            border-radius: 4px;
-        }
-        .service-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-radius: 12px;
-            border: 1px solid rgba(217, 182, 111, 0.3) !important;
-            background: rgba(255,255,255,0.05) !important;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 18px 35px rgba(0,0,0,0.18);
-            border-color: rgba(217, 182, 111, 0.7) !important;
-        }
-        .service-card p,
-        .service-card h4,
-        .service-card .service-icon {
-            color: var(--luxury-ivory) !important;
-        }
-        .service-card .service-icon {
-            background: linear-gradient(135deg, #d9b66f, #8a5b1d) !important;
+
+        .bg-primary {
+            background: linear-gradient(135deg, rgba(20,12,16,0.92), rgba(74,27,39,0.76)) !important;
         }
 
         .container-fluid:not(.bg-primary) {
-            background: rgba(255,255,255,0.015);
+            background: rgba(255,255,255,0.01);
         }
 
-        .container-fluid.bg-primary.world-it-hero {
+        .world-it-hero {
             position: relative;
-            background:
-                linear-gradient(115deg, rgba(20, 12, 16, 0.92), rgba(74, 27, 39, 0.76)),
+            overflow: hidden;
+            min-height: 760px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(115deg, rgba(20,12,16,0.92), rgba(74,27,39,0.76)),
                 radial-gradient(circle at left, rgba(217,182,111,0.28), transparent 28%);
             border-bottom: 1px solid rgba(217,182,111,0.35);
             box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.18);
@@ -188,11 +169,6 @@
             pointer-events: none;
         }
 
-        /* Matrix Binary Rain Container */
-        .world-it-hero {
-            position: relative;
-            overflow: hidden;
-        }
         #matrixCanvas {
             position: absolute;
             top: 0;
@@ -201,179 +177,193 @@
             height: 100%;
             z-index: 1;
             pointer-events: none;
-            opacity: 0.5;
+            opacity: 0.8;
         }
+
         .world-it-hero > .container {
             position: relative;
             z-index: 2;
         }
 
-        .text-primary {
-            color: var(--luxury-gold) !important;
+        .display-3 {
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            letter-spacing: -0.05em;
+            font-weight: 800;
+            line-height: 1.1;
         }
 
-        .display-1,
-        .display-3,
-        .display-5,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            letter-spacing: 0.02em;
+        .lead {
+            color: rgba(249,245,239,0.8);
+            max-width: 620px;
         }
 
-        .container-fluid[id="about"],
-        .container-fluid[id="qualification"],
-        .container-fluid[id="skill"],
-        .container-fluid[id="service"],
-        .container-fluid[id="portfolio"],
-        .container-fluid[id="contact"] {
-            background: rgba(14, 10, 15, 0.64);
-            border-top: 1px solid rgba(217,182,111,0.18);
-            border-bottom: 1px solid rgba(217,182,111,0.18);
-            box-shadow: inset 0 0 30px rgba(0,0,0,0.12);
-        }
-
-        .container-fluid[id="about"] .text-secondary,
-        .container-fluid[id="qualification"] .text-secondary,
-        .container-fluid[id="skill"] .text-secondary,
-        .container-fluid[id="service"] .text-secondary,
-        .container-fluid[id="portfolio"] .text-secondary,
-        .container-fluid[id="contact"] .text-secondary {
-            color: rgba(249,245,239,0.82) !important;
-        }
-
-        .container-fluid[id="about"] img,
-        .container-fluid[id="qualification"] img,
-        .container-fluid[id="skill"] img,
-        .container-fluid[id="service"] img,
-        .container-fluid[id="portfolio"] img,
-        .container-fluid[id="contact"] img {
-            box-shadow: 0 18px 35px rgba(0,0,0,0.2);
-        }
-
-        .contact-form {
-            background: rgba(255,255,255,0.04) !important;
-            border: 1px solid rgba(217,182,111,0.25) !important;
-            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18) !important;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            background: rgba(255,255,255,0.03) !important;
-            border: 1px solid rgba(217,182,111,0.24) !important;
-            color: var(--luxury-ivory) !important;
-        }
-
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: rgba(249,245,239,0.7) !important;
-        }
-
-        .bg-light {
-            background: rgba(255,255,255,0.04) !important;
-        }
-
-        .bg-primary {
-            background: linear-gradient(135deg, #6c1d2d, #17131a) !important;
-        }
-
-        .btn-play {
-            border: 2px solid rgba(217,182,111,0.8);
-            box-shadow: 0 0 0 8px rgba(217,182,111,0.14);
-        }
-
-        .btn-play span {
-            border-left-color: var(--luxury-gold-soft);
-        }
-
-        .btn-outline-dark {
-            border-color: rgba(217,182,111,0.65);
+        .hero-badges span {
+            display: inline-block;
+            margin: 0 10px 10px 0;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(217,182,111,0.3);
             color: var(--luxury-gold-soft);
+            font-size: 0.8rem;
+            letter-spacing: 0.04em;
         }
 
-        .text-white {
-            color: #f9f5ef !important;
+        .profile-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(217,182,111,0.35);
+            border-radius: 22px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.28);
+            padding: 28px;
+            backdrop-filter: blur(10px);
         }
 
-        .rounded,
-        .rounded-circle {
-            border-radius: 18px !important;
+        .profile-image {
+            width: 100%;
+            height: 460px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 1px solid rgba(217,182,111,0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.18);
         }
 
-        .scroll-to-bottom,
-        .back-to-top {
-            z-index: 5;
+        .about-box,
+        .service-card,
+        .portfolio-item .position-relative,
+        .timeline-item,
+        .contact-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(217, 182, 111, 0.22);
+            border-radius: 18px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
 
-        /* Fix: ensure decorative large heading doesn't cover content */
-        .position-relative .display-1 {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 0;
-            opacity: 0.08;
-            pointer-events: none;
-            font-size: clamp(80px, 12vw, 200px);
-            line-height: 1;
-            -webkit-text-stroke: 1px #dee2e6;
+        .about-box {
+            padding: 28px;
         }
 
-        /* Ensure the section title and other important text are above the decorative heading */
-        .position-relative .position-absolute,
-        .position-relative .text-primary {
-            position: absolute;
-            z-index: 2;
-            top: 50%;
-            transform: translateY(-50%);
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 28px 22px;
+            height: 100%;
         }
 
-        /* Make contact form interactable above background */
-        .contact-form {
-            position: relative;
-            z-index: 3;
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.18);
+            border-color: rgba(217, 182, 111, 0.7) !important;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #d9b66f, #8a5b1d);
+            color: #1d1320;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .portfolio-item .position-relative {
+            overflow: hidden;
+            border-radius: 18px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-height: 250px;
+        }
+
+        .portfolio-item:hover .position-relative {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.8) contrast(1.05);
+        }
+
+        .portfolio-btn {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-btn {
+            opacity: 1;
+        }
+
+        .timeline-item {
+            padding: 24px 22px;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item .year {
+            display: inline-block;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            color: var(--luxury-gold-soft);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .progress {
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .progress-bar {
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--luxury-gold), #f6e5ba);
+        }
+
+        .contact-card {
+            padding: 28px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            background: rgba(217,182,111,0.08);
+            border: 1px solid rgba(217,182,111,0.35);
+            color: var(--luxury-gold-soft);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--luxury-gold);
+            color: var(--luxury-dark-2);
+        }
+
+        .footer {
+            border-top: 1px solid rgba(217,182,111,0.2);
+            background: rgba(12,8,17,0.8);
         }
 
         @media (max-width: 991.98px) {
-            .navbar {
-                background: rgba(18, 15, 20, 0.9) !important;
+            .profile-image {
+                height: 360px;
             }
 
-            .navbar-collapse {
-                background: rgba(18, 15, 20, 0.9);
-                border-radius: 12px;
-                padding: 15px;
-            }
-
-            .navbar .nav-link {
-                padding: 12px 0;
-            }
-
-            /* For small screens keep decorative heading smaller and less intrusive */
-            .position-relative .display-1 {
-                font-size: clamp(48px, 24vw, 120px);
-                opacity: 0.06;
-                top: 5px;
-            }
-
-            .position-relative .position-absolute,
-            .position-relative .text-primary {
-                position: absolute;
-                z-index: 2;
-                top: 40%;
-                transform: translateY(-40%);
+            .world-it-hero {
+                min-height: 680px;
             }
         }
     </style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
-    <!-- Navbar Start -->
     <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
-        <a href="index.html" class="navbar-brand ml-lg-3">
+        <a href="#home" class="navbar-brand ml-lg-3">
             <h1 class="m-0 display-5"><span class="text-primary">Reyza</span>Folio</h1>
         </a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -383,79 +373,341 @@
             <div class="navbar-nav m-auto py-0">
                 <a href="#home" class="nav-item nav-link active">Home</a>
                 <a href="#about" class="nav-item nav-link">About</a>
-                <a href="#qualification" class="nav-item nav-link">Quality</a>
-                <a href="#skill" class="nav-item nav-link">Skill</a>
-                <a href="#service" class="nav-item nav-link">Service</a>
+                <a href="#skills" class="nav-item nav-link">Skills</a>
+                <a href="#services" class="nav-item nav-link">Services</a>
                 <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
+                <a href="#experience" class="nav-item nav-link">Experience</a>
                 <a href="#contact" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="#contact" class="btn btn-outline-primary d-none d-lg-block">Hire Me</a>
+            <a href="#contact" class="btn btn-outline-primary px-4">Hire Me</a>
         </div>
     </nav>
-    <!-- Navbar End -->
 
-
-    <!-- Video Modal Start -->
-    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content border-0 shadow-lg" style="border-radius: 10px; overflow: hidden;">
-                <div class="modal-body p-0">
-                    <button type="button" class="close position-absolute text-white p-3" style="z-index: 10; right: 0;" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>       
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Video Modal End -->
-
-
-    <!-- Header Start (Dengan Canvas Animasi Hujan Biner Tema Klasik/Asli) -->
-    <div class="container-fluid bg-primary world-it-hero d-flex align-items-center mb-5 py-5" id="home" style="min-height: 100vh;">
+    <div class="container-fluid bg-primary world-it-hero" id="home">
         <canvas id="matrixCanvas"></canvas>
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5 px-5 pl-lg-0 pb-5 pb-lg-0 text-center">
-                    <img class="img-fluid w-75 rounded-circle shadow border border-white" style="border-width: 5px !important;" src="img/rey1.jpg" alt="">
+        <div class="container py-5">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-7 mb-5 mb-lg-0">
+                    <p class="section-title">Creative Developer</p>
+                    <h1 class="display-3 text-white mb-4">Hello, I'm <span class="text-primary">Reyza</span></h1>
+                    <p class="lead mb-4">
+                        I design and build modern digital experiences using web technologies,
+                        clean code, and user-focused interfaces.
+                    </p>
+                    <div class="hero-badges mb-4">
+                        <span>Web Design</span>
+                        <span>Frontend</span>
+                        <span>UI/UX</span>
+                        <span>Branding</span>
+                    </div>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#portfolio" class="btn btn-primary btn-lg px-4">View Portfolio</a>
+                        <a href="#contact" class="btn btn-outline-primary btn-lg px-4">Contact Me</a>
+                    </div>
                 </div>
-                <div class="col-lg-7 text-center text-lg-left">
-                    <h3 class="text-white font-weight-normal mb-3">I'm</h3>
-                    <h1 class="display-3 text-uppercase text-primary mb-2" style="-webkit-text-stroke: 2px #ffffff;">M. AGUSTIAN REYZA NOVRIS</h1>
-                    <h1 class="typed-text-output d-inline font-weight-lighter text-white"></h1>
-                    <div class="typed-text d-none"> Medicine Checker, Design Graphic, Web Designer, IT Support, Web Developer, Front End Developer, Apps Designer</div>
-                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
-                        <a href="pdf/CV - M. Agustian Reyza Novris.pdf" class="btn btn-outline-light mr-4 px-4 py-2" download>Download CV</a>
-                        <button type="button" class="btn-play mr-3" data-toggle="modal"
-                            data-src="https://www.youtube.com/live/DvxRgr-74rY?si=VL7Ysgo3Wivo4Hv2" data-target="#videoModal">
-                            <span></span>
-                        </button>
-                        <h5 class="font-weight-normal text-white m-0 d-none d-sm-block">Play Video</h5>
+                <div class="col-lg-5">
+                    <div class="profile-card">
+                        <img src="img/rey.jpg" alt="Reyza" class="profile-image">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Header End -->
 
-    <!-- About Start -->
     <div class="container-fluid py-5" id="about">
         <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">About</h1>
-                <h1 class="position-absolute text-uppercase text-primary">About Me</h1>
-            </div>
-            <div class="row align-items-center pt-3">
-                <div class="col-lg-5 pb-4 pb-lg-0">
-                    <img class="img-fluid rounded shadow-sm w-100" src="img/rey1.jpg" alt="">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <p class="section-title">About Me</p>
+                    <h2 class="display-5 text-white mb-3">I build polished digital experiences.</h2>
+                    <div class="about-box">
+                        <p class="text-white-50 mb-3">
+                            I am a passionate developer focused on crafting elegant and functional websites,
+                            interfaces, and brand experiences that make an impact.
+                        </p>
+                        <p class="text-white-50 mb-3">
+                            My work combines creativity, responsiveness, and technical precision to create user-centered experiences.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3 mt-4">
+                            <div>
+                                <h3 class="text-primary mb-0">2+</h3>
+                                <small class="text-white-50">Years of Experience</small>
+                            </div>
+                            <div>
+                                <h3 class="text-primary mb-0">15+</h3>
+                                <small class="text-white-50">Projects Done</small>
+                            </div>
+                            <div>
+                                <h3 class="text-primary mb-0">5+</h3>
+                                <small class="text-white-50">Happy Clients</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-7 pl-lg-4">
-                    <h3 class="mb-4">UI/UX Designer & Web Developer</h3>
-                    <p align="justify" class="text-secondary" style="line-height: 1.8;">Perkenalkan Saya, M. Agustian Reyza Novris, S.Kom lulusan dari STMIK Amik Riau tahun masuk 2019 dan tahun l[...]</p>
+                <div class="col-lg-7">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="about-box h-100">
+                                <h5 class="text-white mb-3">My Focus</h5>
+                                <p class="text-white-50 mb-0">Designing interfaces, building websites, and improving user experience through modern frontend development.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="about-box h-100">
+                                <h5 class="text-white mb-3">Approach</h5>
+                                <p class="text-white-50 mb-0">Clean aesthetics, responsive layouts, practical performance, and thoughtful user journeys.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="container-fluid py-5" id="skills">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-title">Skills</p>
+                <h2 class="display-5 text-white">Tech stack & capabilities</h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="about-box">
+                        <h5 class="text-white mb-4">Core Skills</h5>
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>HTML / CSS</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>JavaScript</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>UI / UX Design</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-0">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Responsive Web</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="about-box h-100">
+                        <h5 class="text-white mb-4">Tools & Workflow</h5>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge badge-pill px-3 py-2 mb-2" style="background: rgba(217,182,111,0.1); border:1px solid rgba(217,182,111,0.3); color: var(--luxury-gold-soft);">Figma</span>
+                            <span class="badge badge-pill px-3 py-2 mb-2" style="background: rgba(217,182,111,0.1); border:1px solid rgba(217,182,111,0.3); color: var(--luxury-gold-soft);">VS Code</span>
+                            <span class="badge badge-pill px-3 py-2 mb-2" style="background: rgba(217,182,111,0.1); border:1px solid rgba(217,182,111,0.3); color: var(--luxury-gold-soft);">Bootstrap</span>
+                            <span class="badge badge-pill px-3 py-2 mb-2" style="background: rgba(217,182,111,0.1); border:1px solid rgba(217,182,111,0.3); color: var(--luxury-gold-soft);">Photoshop</span>
+                            <span class="badge badge-pill px-3 py-2 mb-2" style="background: rgba(217,182,111,0.1); border:1px solid rgba(217,182,111,0.3); color: var(--luxury-gold-soft);">Git</span>
+                            <span class="badge badge-pill px-3 py-2 mb-2" style="background: rgba(217,182,111,0.1); border:1px solid rgba(217,182,111,0.3); color: var(--luxury-gold-soft);">Canva</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-5" id="services">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-title">Services</p>
+                <h2 class="display-5 text-white">What I can help you with</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h4 class="text-white mb-3">Web Development</h4>
+                        <p class="text-white-50 mb-0">Building responsive websites that are modern, functional, and designed for growth.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-palette"></i></div>
+                        <h4 class="text-white mb-3">UI/UX Design</h4>
+                        <p class="text-white-50 mb-0">Designing user-focused interfaces that balance clean aesthetics and intuitive flows.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+                        <h4 class="text-white mb-3">Brand Identity</h4>
+                        <p class="text-white-50 mb-0">Creating memorable digital identities with strong visuals and consistent messaging.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-5" id="portfolio">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-title">Portfolio</p>
+                <h2 class="display-5 text-white">Recent Work</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 portfolio-item">
+                    <div class="position-relative">
+                        <img src="img/project-1.jpg" alt="Project 1">
+                        <div class="portfolio-btn position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
+                            <a href="#" class="btn btn-primary">View project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item">
+                    <div class="position-relative">
+                        <img src="img/project-2.jpg" alt="Project 2">
+                        <div class="portfolio-btn position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
+                            <a href="#" class="btn btn-primary">View project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item">
+                    <div class="position-relative">
+                        <img src="img/project-3.jpg" alt="Project 3">
+                        <div class="portfolio-btn position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
+                            <a href="#" class="btn btn-primary">View project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-5" id="experience">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-title">Experience</p>
+                <h2 class="display-5 text-white">Career journey</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="timeline-item">
+                        <div class="year">2024 - Present</div>
+                        <h5 class="text-white mb-2">Frontend Developer</h5>
+                        <p class="text-white-50 mb-0">Designing and developing clean, high-performing interfaces with a focus on user experience and conversion.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2022 - 2024</div>
+                        <h5 class="text-white mb-2">Web Designer</h5>
+                        <p class="text-white-50 mb-0">Created landing pages, digital assets, and responsive websites tailored to client goals and modern visual trends.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2020 - 2022</div>
+                        <h5 class="text-white mb-2">Creative Freelancer</h5>
+                        <p class="text-white-50 mb-0">Worked with brands and startups to deliver creative visuals, portfolios, and digital experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-5" id="contact">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-title">Contact</p>
+                <h2 class="display-5 text-white">Let's build something amazing</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-card text-center">
+                        <p class="text-white-50 mb-4">Available for freelance projects, collaborations, and creative work.</p>
+                        <a href="mailto:reyza@example.com" class="btn btn-primary btn-lg px-4 mb-4">reyza@example.com</a>
+                        <div>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid footer py-4">
+        <div class="container text-center text-white-50">
+            &copy; 2025 <span class="text-primary">ReyzaFolio</span>. All rights reserved.
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.11.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <script>
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+        function resizeCanvas() {
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+        }
+
+        const fontSize = 16;
+        let columns = 0;
+        let drops = [];
+
+        function initMatrix() {
+            columns = Math.floor(canvas.width / fontSize);
+            drops = Array.from({ length: columns }, () => 1);
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(18, 15, 20, 0.12)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                const x = i * fontSize;
+                const y = drops[i] * fontSize;
+
+                ctx.fillStyle = i % 2 === 0 ? '#f6e5ba' : '#d9b66f';
+                ctx.fillText(text, x, y);
+
+                if (y > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        resizeCanvas();
+        initMatrix();
+        setInterval(drawMatrix, 40);
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            initMatrix();
+        });
+    </script>
+</body>
+
+</html>
